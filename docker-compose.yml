@@ -1,0 +1,22 @@
+version: "3"
+
+networks:
+  storage: {}
+  processing: {}
+
+services:
+  
+  minio:
+    image: quay.io/minio/minio:latest
+    command: server --console-address ":9090" /data
+    restart: unless-stopped
+    ports:
+      - "9000:9000" # Console
+      - "9090:9090" # API
+    volumes:
+      - ${MINIO_DATA_DIRECTORY}:/data
+    environment:
+      - MINIO_ROOT_USER=${MINIO_ROOT_USER}
+      - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}
+    networks:
+      - storage
