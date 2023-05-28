@@ -7,7 +7,7 @@ networks:
 services:
   
   minio:
-    image: quay.io/minio/minio:latest
+    image: ${MINIO_IMAGE}
     command: server --console-address ":9090" /data
     restart: unless-stopped
     ports:
