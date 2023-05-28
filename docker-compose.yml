@@ -11,8 +11,8 @@ services:
     command: server --console-address ":9090" /data
     restart: unless-stopped
     ports:
-      - "9000:9000" # Console
-      - "9090:9090" # API
+      - "${MINIO_CONSOLE_PORT}:9000" # Console
+      - "${MINIO_API_PORT}:9090" # API
     volumes:
       - ${MINIO_DATA_DIRECTORY}:/data
     environment:
