@@ -20,7 +20,7 @@ services:
       - credentials
 
   credentials:
-    image: ghcr.io/nplettenberg/dataflow_credentials:v.0.0.5
+    image: ghcr.io/nplettenberg/dataflow_credentials:v0.0.5
     restart: unless-stopped
     depends_on:
       - minio
